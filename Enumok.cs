@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace UveghazProject
 {
-	internal class Adattar
+	enum Szerepkor
 	{
+		KERTESZ, 
+		TECHNIKUS, 
+		ADMIN
+	}
 
 
 
+
+	internal class Enumok
+	{
 	}
 }
