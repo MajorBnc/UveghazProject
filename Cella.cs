@@ -49,6 +49,11 @@ namespace UveghazProject
 			{
 				this.noveny = noveny;
 				this.egyedszam = egyedszam;
+				if (this.egyedszam > noveny.OptimalisSuruseg)
+				{
+					this.noveny.EgeszsegAllapot -= 2;
+
+				}
 				return true;
 
 			}
@@ -56,6 +61,11 @@ namespace UveghazProject
 			{
 
 				this.egyedszam += egyedSzam;
+				if (this.egyedszam > noveny.OptimalisSuruseg)
+				{
+					this.noveny.EgeszsegAllapot -= 2;
+				}
+				
 				return true;
 
 			}
@@ -66,6 +76,28 @@ namespace UveghazProject
 			}
 
 
+		}
+
+		public void Noveles(int egyedSzam)
+		{
+			this.Beultet(this.noveny, egyedSzam);
+		}
+
+		public void Csokkentes(int egyedSzam) 
+		{
+		 this.egyedszam -= egyedSzam;
+			if (this.egyedszam < 0)
+			{
+				this.Urit();
+			}
+
+
+		}
+
+		public void Urit()
+		{
+			this.egyedszam = 0;
+			this.noveny = null;
 		}
 	}
 }
